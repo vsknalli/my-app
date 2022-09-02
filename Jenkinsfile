@@ -3,6 +3,8 @@ node{
         git 'https://github.com/vsknalli/secound-app'
     }
     stage('Compile-Package'){
-        sh 'mvn package'
+        // Get Maven Home Path
+        def mvnHome = tool name: 'maven-3', type: 'maven'
+        sh "${mvnHome}/bin/mvn package"
     }
 }
